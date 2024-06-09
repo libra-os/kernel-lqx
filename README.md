@@ -6,5 +6,5 @@ Libra operating system kernel development repository.
 - enter to the installation directory
   `cd kernel-lqx`
 - run installation script
-  '/bin/bash install'
+  `/bin/bash install`
   
