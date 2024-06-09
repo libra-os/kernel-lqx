@@ -6,15 +6,16 @@ echo ' 2. loki < almuhdilkarim@outlook.com >'
 sleep 2
 
 sudo pacman -Sy &&
-	sudo echo "[liquorix]" >>/etc/pacman.conf.d/linux-lqx.conf &&
-	sudo echo "Server = https://liquorix.net/archlinux/\$repo/\$arch" >>/etc/pacman.conf.d/linux-lqx.conf &&
-	sudo pacman-key --keyserver hkps://keyserver.ubuntu.com --recv-keys 9AE4078033F8024D && sudo pacman-key --lsign-key 9AE4078033F8024D
-	sudo pacman -Sy &&
-	sudo pacman -S linux-lqx &&
-	sudo cat <<EOF >/etc/mkinitcpio.d/linux-lqx.preset
+sudo echo "[liquorix]" >>/etc/pacman.conf.d/linux-lqx.conf &&
+sudo echo "Server = https://liquorix.net/archlinux/\$repo/\$arch" >>/etc/pacman.conf.d/linux-lqx.conf &&
+sleep 2
+sudo pacman-key --keyserver hkps://keyserver.ubuntu.com --recv-keys 9AE4078033F8024D && sudo pacman-key --lsign-key 9AE4078033F8024D
+sudo pacman -Sy &&
+sudo pacman -S linux-lqx &&
+sudo cat <<EOF >/etc/mkinitcpio.d/linux-lqx.preset
 
 
-# mkinitcpio preset file for the 'linux' package
+# mkinitcpio preset file for the 'liquerix linux' package
 
 #ALL_config="/etc/mkinitcpio.conf"
 ALL_kver="/boot/vmlinuz-linux-lqx"
