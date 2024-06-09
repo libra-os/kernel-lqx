@@ -2,7 +2,7 @@
 
 echo 'Package Mantenance:' 
 echo ' 1. achmad baihaqi <baihaqia442@gmail.com>'
-ecbo ' 2. loki < almuhdilkarim@outlook.com >'
+echo ' 2. loki < almuhdilkarim@outlook.com >'
 sleep 2
 
 sudo pacman -Sy &&
