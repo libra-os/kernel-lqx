@@ -4,8 +4,7 @@ echo 'Package Mantenance:'
 echo ' 1. achmad baihaqi <baihaqia442@gmail.com>'
 echo ' 2. loki < almuhdilkarim@outlook.com >'
 sleep 2
-
-sudo pacman -Sy &&
+[
 sudo echo "[liquorix]" >>/etc/pacman.conf.d/linux-lqx.conf &&
 sudo echo "Server = https://liquorix.net/archlinux/\$repo/\$arch" >>/etc/pacman.conf.d/linux-lqx.conf &&
 sleep 2
