@@ -1,2 +1,2 @@
-# lab-kernels
-Laboratorium pengembangan kernel untuk operasi sistem libra
+# kernel develoment
+Libra operating system kernel development repository. 
