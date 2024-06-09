@@ -1,5 +1,9 @@
 #!/bin/bash
-echo 'created baihaqi'
+
+echo 'Package Mantenance:' 
+echo ' 1. achmad baihaqi <baihaqia442@gmail.com>'
+ecbo ' 2. loki < almuhdilkarim@outlook.com'
+sleep 2
 
 sudo pacman -Sy &&
 	sudo echo "[liquorix]" >>/etc/pacman.conf.d/linux-lqx.conf &&
