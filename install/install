@@ -1,0 +1,52 @@
+#!/bin/bash
+
+echo 'Package Mantenance:' 
+echo ' 1. achmad baihaqi <baihaqia442@gmail.com>'
+echo ' 2. loki < almuhdilkarim@outlook.com >'
+sleep 2
+
+
+REPOSITORY=$( sudo cat /etc/pacman.conf | grep liquorix )
+
+## ADD PACKAGE REPOSITORY
+if [ -z "$REPOSITORY" ];then
+	sudo echo '[liquorix]' >> /etc/pacman.conf &&
+	sudo echo 'Server = https://liquorix.net/archlinux/$repo/$arch' >> /etc/pacman.conf &&
+	echo '--> liquorix repository registered'
+else
+	echo '--> liquorix repository existed'
+fi
+
+## REGISTER KEY
+sudo pacman-key --keyserver hkps://keyserver.ubuntu.com --recv-keys 9AE4078033F8024D && 
+sudo pacman-key --lsign-key 9AE4078033F8024D &&
+echo '--> update liquorix server key' &&
+
+
+## INSTALLATION
+sudo pacman -Sy linux-lqx &&
+
+## CONFIGURATION
+sudo cat <<EOF >/etc/mkinitcpio.d/linux-lqx.preset
+
+
+# mkinitcpio preset file for the 'linux' package
+
+#ALL_config="/etc/mkinitcpio.conf"
+ALL_kver="/boot/vmlinuz-linux-lqx"
+
+PRESETS=('default')
+
+#default_config="/etc/mkinitcpio.conf"
+#default_image="/efi/initramfs-linux.img"
+default_uki="/boot/EFI/Linux/arch-linux-lqx.efi"
+#default_options="--splash /usr/share/systemd/bootctl/splash-arch.bmp"
+
+#fallback_config="/etc/mkinitcpio.conf"
+#fallback_image="/boot/initramfs-linux-fallback.img"
+#fallback_uki="/efi/EFI/Linux/arch-linux-fallback.efi"
+#fallback_options="-S autodetect"
+
+EOF
+
+sudo mkinitcpio -P
